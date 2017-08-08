@@ -57,7 +57,7 @@ class DeployTest {
                 dataXrefSearchValueResult = "DF"
             }
         }
-        token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdfbmFtZSI6IlNQUyBDb21tZXJjZSIsImxhc3RfbmFtZSI6IkxpcHNvbiIsImV4cCI6MTUwMjIyNTcwMCwiYXZhdGFyX2ltYWdlX3VybCI6Imh0dHBzOi8vZDJkN2d5OHhueWtyZmkuY2xvdWRmcm9udC5uZXQvdXNlci1pbWFnZXMvdGVzdC80MDB4NDAwLzI3NDQ2MTEyMTU4NjE5MzE5MTU3NzA5NTM3MDUyMTU3Mzg0ODIwMy02OTgxNmQ1NDYwMzFmZjFiMmQ4MDVjYjMwNGJiNDAzNzdkNWY4NTNjIiwidmVyIjoiMSIsImlkIjoiNTE3NDUxNzA4NTk4NDIxMjg4NzQ1MTA5OTg3NjMzNjE0NTQwOTIiLCJmaXJzdF9uYW1lIjoiQmVuIiwidXNlcl9pZCI6IjI3NDQ2MTEyMTU4NjE5MzE5MTU3NzA5NTM3MDUyMTU3Mzg0ODIwMyIsIm9yZ19pZCI6IjIwOTA5ODgwODMwNTU2MjQ0NjgxMTI2NTM0MTAzMzQ1MzAxNTcwMyIsInVyaSI6Imh0dHBzOi8vdGVzdC5pZC5zcHNjLmlvIiwiZW52IjoidGVzdCIsImlhdCI6MTUwMjEzOTMwMCwiZW1haWwiOiJiamxpcHNvbkBzcHNjb21tZXJjZS5jb20ifQ.vQggMejFuCOzAbHnwxRgIT9gPL7xpiFOH0P-2jaFu3RuRfQ56_CB8KawiJCAg2pb5pBn5yGmFC4zmNkI18PZAxH3zzOYuB_PaAwSWD0J37FDRc5Zklxny72VOF6HmzypZwHh2i-L2NxJeN-cb5XeMj4TMDBOtpZUPdbQI3mf4VPGC8nUk3Mq3lz8d2QXU3NGGXNOjzHwZYdpAPrJNr5JWkEdzgALKNastdwBWVZzE-U40hibS1Dxo6oIbmnXCaiiWl0NaRX34LDKWMB-C404jE6fWyh1S3Z1kTdBpiX5QAXzkfvcsCWPmgTQ9Nzp9yZy2Z9al4ptaUbqf0BQ7M5z6Q"//jCredStash.getSecret("$ENVIRONMENT-credstash", "web.xref.api.identitytoken", null)
+        token = jCredStash.getSecret("$ENVIRONMENT-credstash", "web.xref.api.identitytoken", null)
     }
 
     class TestDataXref {
