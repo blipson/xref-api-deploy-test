@@ -168,6 +168,30 @@ class DeployTest {
         assertEquals("DEPLOYTESTLOOKUPKEY3", dataXrefs[1].lookup_key3)
         assertEquals("DEPLOYTESTLOOKUPVALUE", dataXrefs[1].lookup_value)
 
+        // Search Data XREFs with distinct
+        val distinctSearchTestUrl = testUrl + "/dataxrefs?lookup_id=DEPLOYTESTLOOKUPID&lookup_id2=DEPLOYTESTLOOKUPID2&lookup_id3=DEPLOYTESTLOOKUPID3&lookup_key=DEPLOYTESTLOOKUPKEY&lookup_key2=DEPLOYTESTLOOKUPKEY2&lookup_key3=DEPLOYTESTLOOKUPKEY3&lookup_value=DEPLOYTESTLOOKUPVALUE&page=0&count=100&distinct=lookup_id"
+        val distinctResult = StringBuilder()
+        val distinctUrl = URL(distinctSearchTestUrl)
+        val distinctConn = distinctUrl.openConnection() as HttpURLConnection
+        distinctConn.requestMethod = "GET"
+        distinctConn.setRequestProperty("Authorization", "Bearer " + token)
+        val distinctRd = BufferedReader(InputStreamReader(distinctConn.inputStream))
+        var distinctLine: String? = ""
+        while(distinctLine != null) {
+            distinctLine = distinctRd.readLine()
+            distinctResult.append(distinctLine)
+        }
+        val distinctDataXrefs = ObjectMapper().readValue(distinctResult.toString(), Array<TestDataXref>::class.java)
+        distinctRd.close()
+        assertEquals(1, distinctDataXrefs.size)
+        assertEquals("DEPLOYTESTLOOKUPID", distinctDataXrefs[0].lookup_id)
+        assertEquals("DEPLOYTESTLOOKUPID2", distinctDataXrefs[0].lookup_id2)
+        assertEquals("DEPLOYTESTLOOKUPID3", distinctDataXrefs[0].lookup_id3)
+        assertEquals("DEPLOYTESTLOOKUPKEY", distinctDataXrefs[0].lookup_key)
+        assertEquals("DEPLOYTESTLOOKUPKEY2", distinctDataXrefs[0].lookup_key2)
+        assertEquals("DEPLOYTESTLOOKUPKEY3", distinctDataXrefs[0].lookup_key3)
+        assertEquals("DEPLOYTESTLOOKUPVALUE", distinctDataXrefs[0].lookup_value)
+
         // Delete Data XREFs
         val multipleDeleteTestUrl = testUrl + "/dataxrefs"
         val deleteResult = StringBuilder()
