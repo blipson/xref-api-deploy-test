@@ -7,7 +7,7 @@ def main():
     build = 0
     while 1:
         print("Polling build...")
-        url = "https://xref-api.spstest.in/up"
+        url = "https://xref-api-ecs.spstest.in/up"
         get = requests.get(url)
         print(get)
         if str(get) == '<Response [200]>':

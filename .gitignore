@@ -1,3 +1,7 @@
 gradle.properties
 testResults
-
+.gradle/
+.idea/
+build/
+out/
+xref-api-deploy-test.iml
